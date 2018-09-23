@@ -32,4 +32,8 @@ class Horarios(models.Model):
     sunday = models.BooleanField(default=False, verbose_name="Sunday")
     fromto = models.CharField(default='07:00', verbose_name="From:", max_length=8)
     to = models.CharField(default='14:00', verbose_name="To:", max_length=8)
-    voluntary = models.ManyToManyField(Voluntary, verbose_name="Categorías", related_name="get_vol")
+    voluntary = models.ManyToManyField(Voluntary, verbose_name="Voluntarios", related_name="get_vol")
+
+    def __str__(self):
+        v = self.voluntary.all()
+        return '{}'.format(v[0])

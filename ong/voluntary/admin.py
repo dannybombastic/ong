@@ -17,11 +17,22 @@ class VoluntaryAdmin(admin.ModelAdmin):
     )
 
 
-
+@admin.register(Horarios)
 class HorariosAdmin(admin.ModelAdmin):
-    pass
+   
+   readonly_fields = ('fromto','to')
+   
+   list_filter = (
+
+        'monday',
+        'tuesday',
+        'wednesday',
+        'thursday',
+        'friday',
+        'saturday',
+        'sunday'
+    )
 
 
 
-
-admin.site.register(Horarios,HorariosAdmin)
+ 
